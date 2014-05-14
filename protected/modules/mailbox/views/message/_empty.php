@@ -1,0 +1,1 @@
+<div class="mailbox-empty">Нет сообщений.<?php // echo $this->getAction()->getId(); ?></div>

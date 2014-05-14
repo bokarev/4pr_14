@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>YouTube Direct Lite</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="js/third-party/lscache.js"></script>
+    <script type="text/javascript" src="js/third-party/parseUri.js"></script>
+    <script type="text/javascript" src="js/third-party/require-jquery.js" data-main="js/main"></script>
+  </head>
+  <body>
+    <div id="header" class="hidden login-required">
+      <img id="profile-picture"/>
+      <span id="display-name"></span>
+      <a id="logout" data-state="logout">х</a>
+    </div>
+    <div id="login-panel" class="hidden panel">
+      <div><a id="login">Включить YouTube хранилище</a></div>
+    </div>
+    <ul id="tabs" class="hidden login-required">
+      <li data-state="upload">Загрузить видео</li>
+      <li data-state="existing">Список видео</li>
+      <li data-state="webcam">Записать с веб камеры</li>
+    </ul>
+    <div id="message" class="hidden"></div>
+    <div id="existing-panel" class="hidden panel">
+      <ul id="existing-videos"></ul>
+    </div>
+    <div id="upload-panel" class="hidden panel">
+      <form id="upload-form" enctype="multipart/form-data" method="POST">
+        <div id="title-container" class="hidden">
+          <label for="title">Название</label>
+          <input id="title" type="text" class="wide" maxlength="90" required/>
+        </div>
+        <div id="description-container" class="hidden">
+          <label for="description">Описание</label>
+          <textarea id="description" type="text" class="wide" maxlength="1000" required></textarea>
+        </div>
+        <div id="category-container" class="hidden">
+          <label for="category">Плейлисты</label>
+          <select id="category" class="wide"></select>
+        </div>
+        <div>
+          <label for="file">Видео файл</label>
+          <input id="file" name="file" type="file" required/>
+        </div>
+        <div>
+          <input class="sub_but" id="upload" type="button" value="Upload" disabled/>
+        </div>
+        <div id="tos">
+        Нажимая на кнопку "Загрузить", вы подтверждаете, что вы владеете всеми правами на контент
+          <a href="http://www.youtube.com/t/terms" target="_blank">http://www.youtube.com/t/terms</a>.
+        </div>
+      </form>
+    </div>
+    <div id="postupload-panel" class="hidden panel">
+      <div id="upload-success" class="hidden">
+        Ваше <a id="youtube-link" target="_blank">видео</a> было успешно загружено.
+      </div>
+    </div>
+    <div id="webcam-panel" class="hidden panel">
+      <div id="webcam-widget"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>YouTube Direct Lite Admin</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="js/third-party/lscache.js"></script>
+    <script type="text/javascript" src="js/third-party/parseUri.js"></script>
+    <script type="text/javascript" src="js/third-party/require-jquery.js" data-main="js/admin-main"></script>
+  </head>
+  <body>
+    <div id="header" class="hidden login-required">
+      <img id="profile-picture"/>
+      <span id="display-name"></span>
+      <a id="logout" data-state="logout">х</a>
+    </div>
+    <div id="login-panel" class="hidden panel">
+      <div><a id="login">Включить YouTube хранилище</a></div>
+    </div>
+    <ul id="tabs" class="hidden">
+      <li data-state="embed-codes">Встроенный код</li>
+      <li data-state="pending">На рассмотрении</li>
+      <li data-state="approved">Разрешенные</li>
+      <li data-state="rejected">Блокированные</li>
+    </ul>
+    <div id="message" class="hidden"></div>
+    <div id="admin-panel" class="hidden panel">
+      <div>Плейлисты</div>
+      <ul id="playlists"></ul>
+    </div>
+    <div id="embed-codes-panel" class="hidden panel">
+      <div>
+        Код для добавления видео в этот плейлист:
+        <div><code id="widget-embed-code"></code></div>
+      </div>
+      <div>
+        Показать видео в проекте, use the following HTML code:
+        <div><code id="playlist-embed-code"></code></div>
+      </div>
+      <div>
+        Вы можете использовать <a id="rss-feed">RSS</a> чтобы получать информацию о новых загруженных видео
+      </div>
+    </div>
+    <div id="moderation-message" class="hidden"></div>
+    <div id="pending-panel" class="hidden panel">
+      <ul id="pending-videos" class="admin-video-list"></ul>
+    </div>
+    <div id="approved-panel" class="hidden panel">
+      <ul id="approved-videos" class="admin-video-list"></ul>
+    </div>
+    <div id="rejected-panel" class="hidden panel">
+      <ul id="rejected-videos" class="admin-video-list"></ul>
+    </div>
+    <div id="switch" class="hidden">
+      <a data-state="admin">Сменить плейлист</a>
+    </div>
+  </body>
+</html>

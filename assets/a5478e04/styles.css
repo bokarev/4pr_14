@@ -1,0 +1,255 @@
+.grid-view-loading
+{
+    background:url(loading.gif) no-repeat;
+}
+
+
+.grid-view
+{
+    padding: 0px;
+    position: relative;
+}
+
+
+.grid-view table thead th {
+    /*border-radius: 5px;*/
+}
+
+.grid-view table.items
+{
+    /*background: white;*/
+    border-collapse: collapse;
+    width: 100%;
+    border: 0px #D0E3EF solid;
+}
+
+.grid-view table.items th, .grid-view table.items td
+{
+    font-size: 0.9em;
+    padding: 0.3em;
+}
+
+.grid-view table.items th:first-child {
+   border-top-left-radius: 5px;
+}
+.grid-view table.items th:last-child {
+   border-top-right-radius: 5px;
+}
+
+.grid-view table.items th
+{
+    color: #444;
+    height: 27px;
+    text-align: center;
+    padding: 0px;
+    font-weight:bold;
+    zoom: 1;
+}
+
+.grid-view table.items th a
+{
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.grid-view table.items th a:hover
+{
+    color: #666;
+}
+
+.grid-view table.items th a.asc
+{
+    background:url(up.gif) right center no-repeat;
+    padding-right: 10px;
+}
+
+.grid-view table.items th a.desc
+{
+    background:url(down.gif) right center no-repeat;
+    padding-right: 10px;
+}
+
+.grid-view table.items tr.even
+{
+    background: #F8F8F8;
+}
+
+.grid-view table.items tr.odd
+{
+    background: #E5F1F4;
+}
+
+.grid-view table.items tr.selected
+{
+    background: #BCE774;
+}
+
+/*.grid-view table.items tr:hover
+{
+    background: #ECFBD4;
+}*/
+
+.grid-view .link-column img
+{
+    border: 0;
+}
+
+.grid-view .button-column
+{
+    text-align: right;
+    width: 60px;
+}
+
+.grid-view .button-column img
+{
+    border: 0;
+}
+
+.grid-view .checkbox-column
+{
+    width: 15px;
+}
+
+.grid-view .summary
+{
+    margin: 0 0 5px 0;
+    text-align: right;
+    font-size:11px;
+    padding:2px;
+}
+
+.grid-view .pager
+{
+    margin: 5px 0 0 0;
+    text-align: right;
+}
+
+.grid-view .empty
+{
+    font-style: italic;
+}
+
+.grid-view .filters input,
+.grid-view .filters select
+{
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.gridViewOptions {
+    float:left;
+    position:absolute;
+    margin-top:3px;
+    right:15px;
+    background-image:url('gear.png');
+    width:20px;
+    height:20px;
+    background-repeat:no-repeat;
+    background-position:center center;
+    cursor:pointer;
+    z-index:100;
+    border-top:1px solid transparent;
+    border-left:1px solid transparent;
+    border-right:1px solid transparent;
+}
+
+.gridViewOptions.active {
+    background-color:#EAEAEA;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top:1px solid silver;
+    border-left:1px solid silver;
+    border-right:1px solid silver;
+}
+
+.gridViewOptionsMenu {
+    display:none;
+    float:left;
+    position:absolute;
+    margin-top:23px;
+    padding-top:3px;
+    padding-bottom:3px;
+    right:15px;
+    min-width:100px;
+    /*height:200px;*/
+    background-color:#EAEAEA;
+    cursor:pointer;
+    border:1px solid silver;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius: 5px;
+    -moz-border-radius-topright: 0;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+
+    -moz-box-shadow: 3px 3px 4px silver;
+    -webkit-box-shadow: 3px 3px 4px silver;
+    box-shadow: 3px 3px 4px silver;
+}
+
+.gridViewOptionsMenu ul li {
+    display: block;
+}
+.gridViewOptionsMenu ul li a {
+    padding:5px;
+    display: block;
+    color:#444;
+}
+.gridViewOptionsMenu ul li a:hover {
+    color:#309BBF;
+    text-decoration:underline;
+}
+.grid-view .nonActive, .grid-view .nonActive:hover {
+    color:silver;
+    text-decoration:none;
+}
+
+.gridFooterActions {
+    padding: 5px;
+    float: left;
+    visibility: hidden;
+}
+
+.gridFooterActions li {
+    padding: 3px 0 3px 0;
+    float: left;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.gridFooterActions a.actionDelete {
+    color:#E46969;
+}
+.gridFooterActions a:hover {
+    color:#444;
+}
+
+/* Fix for grid in form div */
+.form .filters input[type=text] {
+    padding: 0;
+    width: 99%;
+}
+
+.grid-view table.items tr.disabled {
+    background-color: #FF5F5F;
+    opacity: 0.4;
+}
+
+.form .grid-view .filters input {
+    height: 18px;
+    padding: 1px;
+}
+
+.grid-view select, .grid-view input {
+    height: 16px;
+}
+
+div.form .grid-view select {
+    height: 21px;
+    padding: 1px;
+    font-size: 12px;
+}

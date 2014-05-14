@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Welcome to Foundation</title>
+
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="stylesheets/fc-webicons.css">
+
+	<script src="javascripts/foundation/modernizr.foundation.js"></script>
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<style type="text/css">
+	 
+	 .very-large { width: 200px; height: 200px; -webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px; }
+	 
+	</style>
+
+</head>
+<body>
+
+	<div class="row">
+		<div class="twelve columns">
+			<h2>Social Web Icons Example</h2>
+			<p>This example file shows some of the uses for <a href="http://zurb.com/playground/social-webicons">Adam Fairhead's social icons.</a></p>
+			<hr />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="eight columns">
+		
+		  <h4>Simple Inline Usage</h4>
+		  <p>These social icons are quite easy to use. One of the simplest ways is to simply use them as inline anchors to social networks, such as if we wanted to have you <a href="http://www.facebook.com/zurb" class="small fc-webicon facebook">Like us on Facebook</a> <a href="http://www.facebook.com/zurb">like us on Facebook</a>.</p>
+		  
+		  <h4>Basic Social Toolbars</h4>
+		  <p>Since Foundation includes some simple affordances for link lists, we could create a very simple social / support toolbar using the <code>ul.link-list</code> element.</p>
+		  
+		  <ul class="link-list">
+		    <li><a href="http://www.facebook.com/zurb" class="fc-webicon facebook">Like us on Facebook</a></li>
+		    <li><a href="http://twitter.com/foundationzurb" class="fc-webicon twitter">Follow us on Twitter</a></li>
+		    <li><a href="mailto:foundation-framework-@googlegroups.com" class="fc-webicon mail">Email the Foundation Google Group</a></li>
+		  </ul>
+		  
+		  <p>Why use this and not the built in Like, Follow, etc buttons? Consider <a href="http://www.zurb.com/article/883/small-painful-buttons-why-social-media-bu">this blog post</a> we wrote about the dangers of using those in a responsive site.</p>
+		  
+		  <h4>Different Sizes</h4>
+		  <p>Each icon has three sizes: <code>.small</code>, regular (no class) and <code>.large</code>. They are all inline so, they can be used however you'd like, and those three sizes all have PNG fallbacks for older browsers.</p>
+		  
+		  <p>
+		    <a href="http://www.facebook.com/zurb" class="small fc-webicon facebook">Like us on Facebook</a>
+		    <a href="http://www.facebook.com/zurb" class="fc-webicon facebook">Like us on Facebook</a>
+		    <a href="http://www.facebook.com/zurb" class="large fc-webicon facebook">Like us on Facebook</a>
+		  </p>
+		  
+		  <p>You can use custom sizes, since the SVG can scale to any resolution, but be mindful that custom sizes will not include an appropriate PNG fallback.</p>
+		  
+		  <p><a href="http://www.facebook.com/zurb" class="very-large fc-webicon facebook">Like us on Facebook</a></p>
+		  
+		  <hr />
+		  
+		  <h4>How to Include Them</h4>
+		  <p>In this example download you'll find everything you need. The <code>/images</code> folder contains a folder called <code>/fairhead-icons</code> with all of the SVG icons as well as the PNG fallbacks for IE7 and IE8.</p>
+		  <p>On top of that you'll need <code>stylesheets/fc-webicons.css</code> which includes all of the styles for the icon anchors, and you'll also need <code>javascripts/foundation/modernizr.foundation.js</code>. You can use your own version of Modernizr, but be sure it includes the SVG toolkit.</p>
+		
+		</div>
+
+		<div class="four columns">
+			<h4>Continuing with Foundation</h4>
+			<p>These examples are shown on a Foundation 3 page, and this code pack includes all of Foundation 3. If you'd like to try out more of Foundation, check out the <a href="http://foundation.zurb.com">Foundation website</a>, which includes complete documentation and examples.</p>
+
+			<h4>Other Resources</h4>
+			<p>Once you've exhausted the fun in this example and on the Foundation site, you should check out:</p>
+			<ul class="disc">
+				<li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
+				<li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
+			</ul>
+		</div>
+	</div>
+		
+
+	<!-- Included JS Files -->
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/foundation/jquery.reveal.js"></script>
+	<script src="javascripts/foundation/jquery.orbit-1.4.0.js"></script>
+	<script src="javascripts/foundation/jquery.customforms.js"></script>
+	<script src="javascripts/foundation/jquery.placeholder.min.js"></script>
+	<script src="javascripts/foundation/jquery.tooltips.js"></script>
+	<script src="javascripts/app.js"></script>
+
+</body>
+</html>

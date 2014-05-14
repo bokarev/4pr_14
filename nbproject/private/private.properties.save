@@ -1,0 +1,7 @@
+auxiliary.org-netbeans-modules-php-editor.dbconn=jdbc:derby://localhost:1527/sample [app \u043d\u0430 APP]
+copy.src.files=false
+copy.src.target=/Applications/MAMP/htdocs/tmn
+index.file=index.php
+run.as=LOCAL
+script.arguments=r=site/projects#projects
+url=http://4pr.local

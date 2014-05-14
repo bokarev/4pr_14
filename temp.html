@@ -1,0 +1,234 @@
+<script>
+    
+    var tree = {
+    id          : '1',
+    
+    children    : [
+        {
+            id          : '2',
+            
+            children    : [
+                {
+                    id  : '5'
+                },
+                {
+                    id  : '6'
+                }
+            ]
+        },
+        {
+            id  : '3'
+        },
+        {
+            id          : '4',
+            
+            children    : [
+                {
+                    id          : '7',
+                    children    : [
+                        {
+                            id  : '9'
+                        }
+                    ]
+                },
+                {
+                    id  : '8'
+                }
+            ]
+        }
+    ] 
+}
+
+
+
+//var iterator = function (root, func) {
+// 
+//    func(root);
+//
+//    
+//}
+//
+//   
+//iterator(tree, function (node) {
+//    console.log(node.id)
+//});
+
+///    !!!!!!
+//function iterator(o,func) {
+//    //var arr = [];
+//    for (var i in o) {
+//        func.apply(this,[i,o[i]]);  
+//        if (typeof(o[i])=="object") {
+//            //going on step down in the object tree!!
+//            iterator(o[i],func);
+//        }
+//    }
+//}
+//
+////that's all... no magic, no bloated framework
+//iterator(tree,function (key,value) {
+//    //console.log(node.id)
+//    console.log(key + " : "+value);
+//});
+///    !!!!!!
+
+
+function iterator(o,func) {
+    var arr = [];
+    for (var i in o) {
+        if (o.id !== undefined)
+            func.apply(this,[o]);   
+        if (typeof(o[i])=="object") {
+                    if (o[i].children !== undefined){
+                        func.apply(this,[o[i]]); 
+                        arr[i] = o[i].children;
+                    }else iterator(o[i],func);
+        }
+    }
+    for (i in arr) 
+        iterator(arr[i],func);
+        
+}
+
+iterator(tree,function (node) {
+    console.log(node.id)
+});
+
+
+
+//
+//
+//iterator(tree, function (node) {
+//    console.log(node.id)
+//});
+
+//function iterator(o,func) {
+//    console.log(">++++>");
+//    var arr = [];
+//    var c = 0;
+//    for (var i in o) {
+//        console.log("c = " + c);
+//        func.apply(this,[i,o[i]]);  
+//        if (typeof(o[i])=="object" && i == "children") {
+//            //going on step down in the object tree!!
+//            console.log(">>>" + i);
+//            arr[c] = o[i]; 
+//            //iterator(o[i],func);
+//        }
+//        c++;
+//    }
+//    for (var i in arr) {
+//        console.log("arr ");
+//        iterator(arr[i],func);
+//    }
+//    console.log("<-----<");
+//}
+//
+////that's all... no magic, no bloated framework
+//iterator(tree,function (key,value) {
+//    //console.log(node.id)
+//    console.log(key + " : "+value);
+//});
+
+
+
+
+
+
+
+
+//function iterator(o,func) {
+//    var children = [];
+//    var c = 0;
+//    for (var i in o) {
+//        func.apply(this,[i,o[i]]);  
+//        if (typeof(o[i])=="object") {
+//            //going on step down in the object tree!!
+//            //iterator(o[i],func);
+//            console.log(">>>>>>>" + i);
+//            children[c] = o[i];
+//        }
+//        c++;
+//    }
+//    for (i in children) {
+//        
+//        iterator(children[i],func);
+//    }
+//    
+//}
+//
+////that's all... no magic, no bloated framework
+//iterator(tree,function (key,value) {
+//    //console.log(node.id)
+//    console.log(key + " : "+value);
+//});
+
+
+
+//function iterator(o,func) {
+//    var children_arr = [];
+//    var c = 0;
+//    for (var i in o) {
+//         
+//        if (typeof(o[i])=="object") {
+//            
+//            
+//            
+//            children_arr[c] = o[i];
+//        }else{func.apply(this,[i,o[i]]); 
+//        
+//    }
+//        console.log(c);
+//        c++;
+//    }
+//    for (i in children_arr) {
+//        iterator(children_arr[i],func);
+//    }
+//}
+//
+////that's all... no magic, no bloated framework
+//iterator(tree,function (key,value) {
+//    //console.log(node.id)
+//    console.log(key + " : "+value);
+//});
+
+
+//function process(key,value) {
+//    console.log(key + " : "+value);
+//}
+//
+//function iterator(o,func) {
+//    for (var i in o) {
+//        func.call(this, o);  
+//        if (typeof(o[i])=="object") {
+//            //going on step down in the object tree!!
+//            iterator(o[i],func);
+//        }
+//    }
+//}
+//
+////that's all... no magic, no bloated framework
+//iterator(tree,function (node) {
+//    console.log(node.id)
+//  //  console.log(key + " : "+value);
+//});
+
+
+
+
+
+// 
+//for (let element of [1, 2, 3]) {
+//  console.log(element);
+//}
+//
+//if ( currentNode.hasChildNodes() )
+//    {}
+
+
+
+</script>
+
+
+
+
