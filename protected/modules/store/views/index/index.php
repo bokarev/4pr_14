@@ -43,7 +43,7 @@
  
 
 <div class="wide_line">
-	<span>Мы предлагаем</span>
+	<span>Сфера Ваших интересов</span>
 </div>
 
 <div class="products_list">
