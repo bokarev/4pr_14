@@ -41,10 +41,10 @@
 </div>
  
  
-
+ 
 <div class="wide_line">
 	<span>Сфера Ваших интересов</span>
-</div>
+</div> 
 
 <div class="products_list">
      <ul class="services-block clearfix">
