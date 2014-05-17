@@ -10,7 +10,7 @@
 				echo CHtml::hiddenField('currency_rate', Yii::app()->currency->active->rate);
 				echo CHtml::hiddenField('configurable_id', 0);
 				echo CHtml::hiddenField('quantity', 1);
-			        echo CHtml::link('<img src ="images/arrow_up.jpg" style="margin-top: -18px" />', array('frontProduct/view', 'url'=>$data->url));
+			        echo CHtml::link('<img src ="images/arrow_up.png" style="margin-top: -18px" />', array('frontProduct/view', 'url'=>$data->url));
 //                                echo CHtml::ajaxSubmitButton(Yii::t('StoreModule.core','заказ'), array('/orders/cart/add'), array(
 //                                    'id'=>'addProduct' . $data->id,
 //                                    'dataType'=>'json',
