@@ -81,7 +81,9 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 	</div>
 
 	<div class="info">
-		<?php echo CHtml::form(array('/orders/cart/add')) ?>
+<?php 
+echo CHtml::form(array('/feedback')) ;// /orders/cart/add ?>
+
 
 		<h1><?php echo CHtml::encode($model->name); ?></h1>
 
@@ -89,15 +91,17 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 
 		<div class="errors" id="productErrors"></div>
 
-		<div style="clear: both;font-size: 16px">
+<!--		<div style="clear: both;font-size: 16px">
 			<?php
 			if($model->appliedDiscount)
 				echo '<span style="color:red; "><s>'.$model->toCurrentCurrency('originalPrice').' '.Yii::app()->currency->active->symbol.'</s></span>';
 			?>
-		</div>
+		</div>-->
 
-		<div class="price">
-			<span id="productPrice"><?php echo StoreProduct::formatPrice($model->toCurrentCurrency()); ?></span>
+		<div style="font-size: 14px">
+                    <span>Цена зависит от выбранных опций и будет установлена после согласования с менеджером.
+                    Минимальная цена на данный заказ от </span>
+			<span id="productPrice" class="attributes"><?php echo StoreProduct::formatPrice($model->toCurrentCurrency()); ?></span>
 			<?php echo Yii::app()->currency->active->symbol; ?>
 		</div>
 
@@ -109,16 +113,29 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 				echo CHtml::hiddenField('currency_rate', Yii::app()->currency->active->rate);
 				echo CHtml::hiddenField('configurable_id', 0);
 				echo CHtml::hiddenField('quantity', 1);
+				echo CHtml::endForm();
+			?>
 
+			<!--<div class="silver_clean silver_button">
+				<button title="<?=Yii::t('core','Сравнить')?>" onclick="return addProductToCompare(<?php echo $model->id ?>);"><span class="icon compare"></span>Сравнить</button>
+			</div>
+
+			<div class="silver_clean silver_button">
+				<button title="<?=Yii::t('core','В список желаний')?>" onclick="return addProductToWishList(<?php echo $model->id ?>);"><span class="icon heart"></span>Список желаний</button>
+			</div>-->
+		</div>
+		<div class="desc"><?php echo $model->short_description; ?></div>
+		<div class="desc"><?php echo $model->full_description; ?></div>
+                <?php 
+                
+                // TODO_PR : form order product array('/orders/cart/add')
 				if($model->isAvailable)
 				{
-					echo CHtml::ajaxSubmitButton(Yii::t('StoreModule.core','Заказать'), array('/orders/cart/add'), array(
-						'dataType' => 'json',
-						'success'  => 'js:function(data, textStatus, jqXHR){processCartResponse(data, textStatus, jqXHR)}',
-					), array(
-						'id'=>'buyButton',
-						'class'=>'blue_button'
-					));
+                                    echo '<br />' . CHtml::link('<span style="font-size: 22px; color : #349fe3">Заказать ' . CHtml::encode($model->name) . '</span>', '#', array(
+                                    'onclick'=>'$("#mydialog").dialog("open"); return false;',
+                                    'class'=>'g-button g-button-orange',
+                                    'title'=>'Отправить заявку',
+                                    ));
 				}
 				else
 				{
@@ -126,24 +143,81 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 						'onclick' => 'showNotifierPopup('.$model->id.'); return false;',
 					));
 				}
-
-				echo CHtml::endForm();
-			?>
-
-			<div class="silver_clean silver_button">
-				<button title="<?=Yii::t('core','Сравнить')?>" onclick="return addProductToCompare(<?php echo $model->id ?>);"><span class="icon compare"></span>Сравнить</button>
-			</div>
-
-			<div class="silver_clean silver_button">
-				<button title="<?=Yii::t('core','В список желаний')?>" onclick="return addProductToWishList(<?php echo $model->id ?>);"><span class="icon heart"></span>Список желаний</button>
-			</div>
-		</div>
-		<div class="desc"><?php echo $model->short_description; ?></div>
-		<div class="desc"><?php echo $model->full_description; ?></div>
+                
+                ?>
+                
+                
 	</div>
 
-	<div style="clear:both;"></div>
+	<div style="clear:both;"><br /></div>
+        
+                <?php
+         //TODO_PR : CJuiDialog main site view
+        $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+            'id' => 'mydialog',
+            'options' => array(
+                'title' => 'Отправить сообщение',
+                'autoOpen' => false,
+                'show'=>array(
+                'effect'=>'blind',
+                'duration'=>500,
+                ),
+                'hide'=>array(
+                'effect'=>'explode',
+                'duration'=>500,
+                ),
+                'modal' => true,
+                'resizable' => false,
+                
+            ),
+        ));
+        $qForm = new QuickForm;
+        $form = $this->beginWidget('CActiveForm', array(
+            'id' => 'quick-form',
+            'stateful' => true,
+            'enableClientValidation' => true,
+            
+            'clientOptions' => array(
+                //'validateOnChange' => true,
+                'validateOnSubmit' => true,
+            ),
+            'htmlOptions' => array(
+                'class' => 'form',
+            ),
+            'action' => array('/site/quick'), // когда форма показывается и в других контроллерах, не только 'site', то я в каждый из этих контроллеров вставил actionQuick, a здесь указал — array('quick'); почему-то не получается с array('//site/quick')
+        ));
+        ?>
+        <?php echo $form->errorSummary($qForm); ?>
+        <?php echo $form->hiddenField($qForm, 'url', array('value' => $_SERVER['PHP_SELF'])); ?>
+        
+        <?php echo $form->labelEx($qForm, 'name'); ?>
+        <?php echo $form->textField($qForm, 'name', array('size' => 30)); ?>
+        <?php echo $form->error($qForm, 'name'); ?>
 
+        <?php echo $form->labelEx($qForm, 'email'); ?>
+        <?php echo $form->textField($qForm, 'email', array('size' => 30)); ?>
+        <?php echo $form->error($qForm, 'email'); ?>
+
+        <?php echo $form->labelEx($qForm, 'phone'); ?>
+        <?php echo $form->textField($qForm, 'phone', array('size' => 30)); ?>
+        <?php echo $form->error($qForm, 'phone'); ?>
+
+        <?php echo $form->labelEx($qForm, 'message'); ?>
+        <?php 
+        $qForm->message = 'Здравствуйте. 
+Я хочу заказать ' . CHtml::encode($model->name) . '.';
+        
+        echo $form->textArea($qForm, 'message', array('rows' => 40, 'cols' => 51, 'style'=>' height: 180px;')); ?>
+        <?php echo $form->error($qForm, 'message'); ?>
+
+        <?php echo CHtml::submitButton('Отправить'); ?>
+
+        <?php
+        $this->endWidget();
+        $this->endWidget('zii.widgets.jui.CJuiDialog');
+        ?>
+
+        <div style="clear:both;"><br /></div>
 	<?php
 		$tabs = array();
 

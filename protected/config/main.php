@@ -115,9 +115,9 @@ return array(
 		),
             //TODO_WUD : [base] config/main
 		'db'=>array(
-			'connectionString'=>'mysql:host=u412531.mysql.masterhost.ru;dbname=u412531',//tmn_wud
-			'username'=>'u412531',
-			'password'=>'ASe.tERSiD5.7e',
+			'connectionString'=>'mysql:host=localhost;dbname=4pr',//tmn_wud
+			'username'=>'root',
+			'password'=>'',
 			'enableProfiling'       => YII_DEBUG, // Disable in production
 			'enableParamLogging'    => YII_DEBUG, // Disable in production
 			'emulatePrepare'        => true,

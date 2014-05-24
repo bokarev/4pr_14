@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Site start view
  */

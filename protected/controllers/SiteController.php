@@ -6,6 +6,20 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 	}
+        public function actionQuick() { 
+           //TODO_PR : CJuiDialog site controller 
+           $model=new QuickForm;
+           $model->attributes=$_POST['QuickForm'];
+           if($model->validate()) {
+               $headers="From: $model->email\r\nReply-To: $model->email";
+               $body = "\n\nОтправитель: ".$model->name."\t Телефон: ".$model->phone."\t Email: ".$model->email."\t Задача: ".$model->message;
+               mail(Yii::app()->params['adminEmail'],'Письмо с сайта 4pr.ru от'.$model->name, $body, $headers);
+           }
+           Dialog::message('flash-success', 'Отправлено!', 'Спасибо, '.$model->name.'! Ваше письмо отправлено!');
+           //Yii::app()->user->setFlash('messageSent', 'Спасибо, '.$model->name.'! Ваше письмо отправлено!');
+           $_POST["QuickForm"]["url"] = str_replace('/index.php', '', $_POST["QuickForm"]["url"]); 
+           $this->redirect(array($_POST["QuickForm"]["url"]));
+        }
 
 	/**
 	 * This is the action to handle external exceptions.

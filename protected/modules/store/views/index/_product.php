@@ -1,7 +1,7 @@
 <li class="span3">
         <figure class="circle">
 	<?php                
-//TODO_WUD : ! [index] first page vitrine
+//TODO_PR : ! [index] first page vitrine
                 echo '<div class="services-icon' . $data->type_id . '"></div><h4>' . CHtml::encode($data->type) . '</h4>';            
 				//echo CHtml::form(array('/orders/cart/add'));
 				echo CHtml::hiddenField('product_id', $data->id);

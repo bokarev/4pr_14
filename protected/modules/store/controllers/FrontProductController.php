@@ -22,6 +22,7 @@ class FrontProductController extends Controller
 			),
 		);
 	}
+           
 
 	/**
 	 * Display product
