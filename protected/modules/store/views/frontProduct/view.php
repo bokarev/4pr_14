@@ -205,7 +205,7 @@ echo CHtml::form(array('/feedback')) ;// /orders/cart/add ?>
         <?php echo $form->labelEx($qForm, 'message'); ?>
         <?php 
         $qForm->message = 'Здравствуйте. 
-Я хочу заказать ' . CHtml::encode($model->name) . '.';
+Мне интересно ваше предложение  "' . CHtml::encode($model->name) . '".';
         
         echo $form->textArea($qForm, 'message', array('rows' => 40, 'cols' => 51, 'style'=>' height: 180px;')); ?>
         <?php echo $form->error($qForm, 'message'); ?>
