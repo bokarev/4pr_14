@@ -94,7 +94,7 @@
           <div class="six columns">
             <a href="users/register?tester">
                 <div class="panel radius callout" align="center" style="height:30px; border-color: #a4b546; margin-top:154px; line-height:0; background: #afc14c">
-                    <strong>Я хочу стать исполнителем</strong>
+                    <strong>Я хочу стать участником</strong>
                 </div>
             </a>
           </div>         
