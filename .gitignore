@@ -1,6 +1,6 @@
 # Ignore all logfiles and tempfiles. 
 log/*.log
 assets/
-protected/runtime/cache/
+protected/runtime/
 protected/config/
 pma/

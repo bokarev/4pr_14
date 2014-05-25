@@ -953,8 +953,7 @@ div.payment ul span:hover, div.delivery ul span:hover {
 }
 
 table.configurations {
-    width:400px;
-    background-color: #E8E8E8;
+    width:600px;
     display: block;
     margin-bottom: 10px;
     border-radius: 5px;
