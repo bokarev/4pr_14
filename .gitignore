@@ -1,7 +1,7 @@
 # Ignore all logfiles and tempfiles. 
 *.log
 assets/
-protected/runtime
-protected/config
+protected/runtime/*
+protected/config/
 pma/
 sandbox
