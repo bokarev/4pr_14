@@ -1092,8 +1092,7 @@ table.compareTable .attr {
     margin-top:30px;
     padding:5px;
     color:#fff;
-    /*background:transparent url("../images/header_background.png") bottom;*/
-    height:150px;
+    /*background:transparent url("../images/header_background.png") bottom;*/   
     clear:both;
 }
 
