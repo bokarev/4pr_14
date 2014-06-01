@@ -13,7 +13,31 @@ Yii::import('application.modules.users.models.User');
  * @property string $delivery_address
  */
 class UserProfile extends BaseModel
-{
+{       public $examples = 'Описание:
+Период: день.месяц.год - день.месяц.год
+Поставленные цели: 
+Ваша роль:
+Достижения:
+
+
+------------------------------------------------
+
+Описание:
+Период: день.месяц.год - день.месяц.год
+Поставленные цели: 
+Ваша роль:
+Достижения:
+
+
+------------------------------------------------
+
+Описание:
+Период: день.месяц.год - день.месяц.год
+Поставленные цели: 
+Ваша роль:
+Достижения:';
+        public $more;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -39,12 +63,14 @@ class UserProfile extends BaseModel
 	{
 		return array(
 			array('full_name', 'required'),
-			array('full_name, foreign, known_computer, sport, food, travel, hobby, district_home, district_work, image', 'length', 'max'=>255),
+            array('known_computer, examples, more', 'length', 'max'=>5000),
+			array('full_name, foreign, sport, food, travel, hobby, district_home, district_work, image', 'length', 'max'=>255),
 			array('phone, skype, income, marital, education, profession, occupation, have_children', 'length', 'max'=>25),
 			array('age', 'length', 'max'=>3),
+                    
 			array('sex, have_auto, have_estate, city_id, country_id', 'numerical', 'integerOnly'=>true),
 			// Search
-			array('id, user_id, full_name, phone, city_id', 'safe', 'on'=>'search'),
+			array('id, user_id, full_name, known_computer, examples, more, phone, city_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -81,7 +107,7 @@ class UserProfile extends BaseModel
 			'profession'       => Yii::t('UsersModule.core', 'Профессия'),
   			'occupation'	   => Yii::t('UsersModule.core', 'Сайт'),
   			'have_children'	   => Yii::t('UsersModule.core', 'Наличие детей'),
-  			'known_computer'   => Yii::t('UsersModule.core', 'Компьютерные технологии которыми Вы владеете'),
+  			//'known_computer'   => Yii::t('UsersModule.core', 'Компьютерные технологии которыми Вы владеете'),
   			'food' 			   => Yii::t('UsersModule.core', 'Предпочтения в еде'),
 			'travel'	       => Yii::t('UsersModule.core', 'Путешествия'),
   			'hobby'			   => Yii::t('UsersModule.core', 'Хобби'),
@@ -90,6 +116,10 @@ class UserProfile extends BaseModel
   			'district_home'	   => Yii::t('UsersModule.core', 'Ближайший район и метро для Москвы (рядом с домом)'),
   			'district_work'	   => Yii::t('UsersModule.core', 'Ближайший район и метро для Москвы (рядом с работой)'),
   			'image'			   => Yii::t('UsersModule.core', 'Изображение'),
+                        'examples'         => Yii::t('UsersModule.core', 'Реализованные проекты (задачи)'),
+                        'known_computer'         => Yii::t('UsersModule.core', 'Перечень Ваших знаний, технологий и навыков'),
+                        'more'         => Yii::t('UsersModule.core', 'Прочее (награды, сертификаты, портфолио, проекты, членство в обществах и ассоциациях)'),
+                    
 		);
 	}
 
@@ -117,7 +147,9 @@ class UserProfile extends BaseModel
 		$criteria->compare('phone',$this->phone,true);
                 $criteria->compare('skype',$this->skype,true);
 		$criteria->compare('city',$this->city,true);
-
+                $criteria->compare('examples',$this->examples,true);
+                $criteria->compare('known_computer',$this->known_computer,true);
+		$criteria->compare('more',$this->more,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

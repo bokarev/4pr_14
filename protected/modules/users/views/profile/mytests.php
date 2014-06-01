@@ -19,7 +19,6 @@ $this->pageTitle=Yii::t('UsersModule.core', 'Заявки на проекты');
         )); ?>
      <?php echo CHtml::submitButton('Сохранить'); ?>
      <?php echo CHtml::endForm(); ?>
-
    </div>
    <aside class="three columns">
 

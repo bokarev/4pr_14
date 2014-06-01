@@ -31,9 +31,24 @@ class ProfileController extends Controller
 		$profile=$user->profile;
 		$changePasswordForm=new ChangePasswordForm();
 		$changePasswordForm->user=$user;
+                if($request->isPostRequest)
+                {
+                    if($myTest = $request->getPost('mytest'))
+                    {
+                        StoreProductTypeTester::model()->deleteAllByAttributes(array('user_id'=>Yii::app()->user->getId()));
+               
+                        foreach ($myTest as $keyId=>$mt) { 
+                            $typeTester = new StoreProductTypeTester; 
+                            $typeTester->user_id = Yii::app()->user->getId();
+                            $typeTester->type_id = $keyId;
+                            $typeTester->save();
+                        }
+                    }
+                }
 
 		if(Yii::app()->request->isPostRequest)
 		{
+                    
 			if($request->getPost('UserProfile') || $request->getPost('User'))
 			{
 				// Handle images
@@ -43,8 +58,8 @@ class ProfileController extends Controller
 						foreach($images as $image)
 						{
 							if(!StoreUploadedImage::hasErrors($image))
-							{
-								$image = $profile->addImage($image);
+							{echo '111';
+								$image = $profile->addImage($image); echo '444';
 							}
 							else
 								$this->setFlashMessage(Yii::t('UsersModule.admin', 'Ошибка загрузки изображения'));
@@ -86,9 +101,13 @@ class ProfileController extends Controller
 			}
 
 		}
+                
+                $dataProvider=new CActiveDataProvider('StoreProductType',array(
+                'pagination'=>array('pageSize'=>30 )) );
 
 		$this->render('index', array(
 			'user'=>$user,
+                        'dataProvider'=>$dataProvider,
 			'profile'=>$profile,
 			'changePasswordForm'=>$changePasswordForm
 		));
@@ -110,9 +129,9 @@ class ProfileController extends Controller
             if($myTest = $request->getPost('mytest'))
             {
                 StoreProductTypeTester::model()->deleteAllByAttributes(array('user_id'=>Yii::app()->user->getId()));
-                
-                foreach ($myTest as $keyId=>$mt) {
-                    $typeTester = new StoreProductTypeTester;
+               
+                foreach ($myTest as $keyId=>$mt) { 
+                    $typeTester = new StoreProductTypeTester; 
                     $typeTester->user_id = Yii::app()->user->getId();
                     $typeTester->type_id = $keyId;
                     $typeTester->save();
@@ -310,7 +329,7 @@ class ProfileController extends Controller
 		{   $comment->attributes=$_POST['Comment'];
                     if($post->addComment($comment))
                     {
-                        Yii::app()->user->setFlash('commentSubmitted','Спасибо  за сообщение. Сообщения заказчиков и тестеров появляются на странице теста после модерации');
+                        Yii::app()->user->setFlash('commentSubmitted','Спасибо  за сообщение. Сообщения заказчиков и исполнителей появляются после модерации');
                         $this->refresh();                                   
                     }                             
                 }

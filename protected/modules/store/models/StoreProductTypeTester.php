@@ -47,7 +47,8 @@ class StoreProductTypeTester extends BaseModel
 	public function relations()
 	{
 		return array(
-                    'user'=>array(self::MANY_MANY, 'User', 'user_id'),
+                    //'active'=>array(self::HAS_ONE, 'User', 'id'),
+                    //'user_type'=>array(self::MANY_MANY, 'StoreProductType', 'StoreProductTypeTester(type_id,user_id)'),
 		);
 	}
 
@@ -59,6 +60,18 @@ class StoreProductTypeTester extends BaseModel
 		return array(
 			'id'   => 'ID',
 		);
+	}
+        
+        /**
+	 * @return array last devs 
+	 */
+	public function getDevList()
+	{
+            $dev_list=self::model()->findAll(array(
+                'select'=>'*',
+                'order'=> 'user_id DESC',
+            ));
+            return $dev_list;
 	}
 
 	/**

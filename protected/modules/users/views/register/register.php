@@ -21,9 +21,9 @@ $this->pageTitle = Yii::t('UsersModule.core','Регистрация');
 		<?php echo $form->errorSummary(array($user, $profile)); ?>
             
                 <div class="row">
-			<?php echo $form->labelEx($user,'role'); ?>
-                        <?php echo $form->radioButton($user, 'role',array('value'=>'4','onclick'=>'javascript: $("#creator").hide("slow")')) . '<span style="color: #06c; padding: 5px; font-size: 22px">Клиент</span>'; ?>
-                        <?php echo $form->radioButton($user,'role',array('value'=>'3', 'onclick'=>'javascript: $("#creator").show("slow")')) . '<span style="color: #06c; padding: 5px; font-size: 22px">Исполнитель</span>'; ?>                   
+			<?php //echo $form->labelEx($user,'role'); ?>
+                        <?php echo $form->hiddenField($user, 'role',array('value'=>'3','onclick'=>'javascript: $("#creator").hide("slow")')) . '<span style="color: #06c; padding: 5px; font-size: 22px">Участник</span>'; ?>
+                        <?php //echo $form->radioButton($user,'role',array('value'=>'3', 'onclick'=>'javascript: $("#creator").show("slow")')) . '<span style="color: #06c; padding: 5px; font-size: 22px">Исполнитель</span>'; ?>                   
 
 		</div>
 
@@ -188,6 +188,6 @@ $this->pageTitle = Yii::t('UsersModule.core','Регистрация');
 		</div>
 
 		<?php $this->endWidget();
-                if(!isset($_GET['tester']))echo '<script>$("#creator").hide()</script>';?>
+                echo '<script>$("#creator").hide()</script>';?>
 	</div><!-- form -->
 </div>

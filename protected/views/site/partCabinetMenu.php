@@ -18,7 +18,7 @@
         <?php } ?>
         <?php 
         if($user->role==3) { ?>
-            <li><a href="<?php echo $this->createUrl('/users/profile/mytests');?>">Мои заявки на проекты</a></li> 
+<!--            <li><a href="<?php echo $this->createUrl('/users/profile/mytests');?>">Мои заявки на проекты</a></li> -->
             <li><a href="<?php echo $this->createUrl('/users/profile/testertests');?>">Назначенные проекты</a></li>
             <!--<li><a href="<?php echo $this->createUrl('/users/profile/tests');?>">Мои тесты</a></li> --> 
              

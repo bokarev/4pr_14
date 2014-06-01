@@ -131,7 +131,7 @@ echo CHtml::form(array('/feedback')) ;// /orders/cart/add ?>
                 // TODO_PR : form order product array('/orders/cart/add')
 				if($model->isAvailable)
 				{
-                                    echo '<br />' . CHtml::link('<span style="font-size: 22px; color : #349fe3">Заказать ' . CHtml::encode($model->name) . '</span>', '#', array(
+                                    echo '<br />' . CHtml::link('<span style="font-size: 22px; color : #349fe3">Заказать</span>', '#', array(
                                     'onclick'=>'$("#mydialog").dialog("open"); return false;',
                                     'class'=>'g-button g-button-orange',
                                     'title'=>'Отправить заявку',
@@ -205,7 +205,7 @@ echo CHtml::form(array('/feedback')) ;// /orders/cart/add ?>
         <?php echo $form->labelEx($qForm, 'message'); ?>
         <?php 
         $qForm->message = 'Здравствуйте. 
-Мне интересно ваше предложение  "' . CHtml::encode($model->name) . '".';
+Я хочу заказать ' . CHtml::encode($model->name) . '.';
         
         echo $form->textArea($qForm, 'message', array('rows' => 40, 'cols' => 51, 'style'=>' height: 180px;')); ?>
         <?php echo $form->error($qForm, 'message'); ?>

@@ -114,12 +114,14 @@ class PhpThumbFactory
 		
 		// grab an instance of PhpThumb
 		$pt = PhpThumb::getInstance();
+                echo '>>>>' . self::$defaultImplemenation;
 		// load the plugins
 		$pt->loadPlugins(self::$pluginPath);
 		
 		$toReturn = null;
+                
 		$implementation = self::$defaultImplemenation;
-		
+		echo '>>>>';
 		// attempt to load the default implementation
 		if ($pt->isValidImplementation(self::$defaultImplemenation))
 		{

@@ -3,12 +3,11 @@
 /* @var $data TestList */
 ?>
 
-<div class="view">
+<div class="view" style="width:336px; float:right;margin:6px">
         <?php echo '<div class="crop"><img align=left src="/images/icons/services-icon' . CHtml::encode($data->id) . '.png" /></div>'; ?>
 
 	<?php echo '<div><b>' . CHtml::encode($data->name) . '</b>'; ?>
-        <br />
-	<br />
+
     <?php if (Yii::app()->user->name == 'admin') echo "- могут выполнить " . $data->testerCount . " человек"; ?> 
     <br/><br/>
     <?php echo CHtml::checkBox("mytest[".$data->id."]",

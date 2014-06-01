@@ -11,7 +11,7 @@ if($flashes = Yii::app()->user->getFlashes()) {
                             'title' => $message['title'],
                             'autoOpen'=>true,
 'dialogClass'=>$message['type'],
-'buttons'=>array('Закрыть'=>'js:function() {$(this).dialog("close");}'),
+//'buttons'=>array('Закрыть'=>'js:function() {$(this).dialog("close");}'),
 'close'=>'js:function(e,ui){
                        $(this).dialog("destroy").remove();
                    }',

@@ -99,6 +99,8 @@ class User extends BaseModel
 			'last_login'   => Yii::t('UsersModule.core', 'Последний вход'),
 			'login_ip'     => Yii::t('UsersModule.core', 'IP Адрес'),
 			'new_password' => Yii::t('UsersModule.core', 'Новый пароль'),
+                    	'experience'     => Yii::t('UsersModule.core', 'Опыт работы'),
+			'goals' => Yii::t('UsersModule.core', 'Профессиональные цели'),
 		);
 	}
 
