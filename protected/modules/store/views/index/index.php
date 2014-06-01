@@ -67,7 +67,7 @@ Frameworks: Zend, CodeIgniter, Yii, Symfony, Modx, Drupal, Joomla, Mootools, Scr
 Системы контроля версий: git, mercurial, svn"';
         //TODO_PR : [dev list index page] view 
         foreach($devs as $val){ 
-            echo '<div class="view" style="width:486px; float:right;margin:2px">';
+            echo '<div class="view" style="overflow:hidden; height:170px; width:486px; float:right;margin:2px">';
             echo '<div style="margin:8px; float:left">';
             foreach($val['products'] as $values){                       
                 echo  '<a href="/product/' . $values[0] . '.html">'
@@ -75,6 +75,7 @@ Frameworks: Zend, CodeIgniter, Yii, Symfony, Modx, Drupal, Joomla, Mootools, Scr
                 . '"  src="/images/icons/services-sm-icon' . $values[2] . '.png" /></a>' ;                               
             }
             echo '</div><div style="float:right; margin:8px; width: 64px; color: #349fe3" >' ;
+            if($val['userpic'] == '') $val['userpic'] = '11_-67685437.jpg';
             echo '<img alt="'  . $val['full_name'] . '" title="'  . $val['full_name'] . '" style=" " src="/uploads/userpic/thumb_' . $val['userpic'] . '" width="64px" /> <br />' 
                  . $val['username'] . '</div>' . $val['known_computer'];               
             echo '</div>';          
