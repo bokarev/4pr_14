@@ -25,7 +25,7 @@ class IndexController extends Controller
                     if($k=='user_id'){                    
                         if (!in_array($v, $devs)){ //если еще нет данных по пользователю                        
                             $user = User::model()->findByAttributes(array('id'=>$v));
-                            if($user->active){ // если мы его активировали
+                            if($user->active==1){ // если мы его активировали
                                 $user_profile = UserProfile::model()->findByAttributes(array('user_id'=>$v));                          
                                 $devs_desc[$v] = array('full_name' => $user_profile->full_name, 
                                                  'username' => $user->username,

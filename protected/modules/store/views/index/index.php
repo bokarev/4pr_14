@@ -62,9 +62,7 @@
 	</div>
 	<div>
         <?php 
-        $str ='"PHP, PERL, UML, Ajax, JavaScript, Mysql, PostgreSQL, MsSql, SOAP, XML, ActionScript2.0, Apache, Tomcat
-Frameworks: Zend, CodeIgniter, Yii, Symfony, Modx, Drupal, Joomla, Mootools, Scriptacoulous, JQuery, ExtJs, Foundation
-Системы контроля версий: git, mercurial, svn"';
+
         //TODO_PR : [dev list index page] view 
         foreach($devs as $val){ 
             echo '<div class="view" style="overflow:hidden; height:170px; width:486px; float:right;margin:2px">';
