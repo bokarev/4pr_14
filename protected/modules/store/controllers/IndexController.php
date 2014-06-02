@@ -33,12 +33,13 @@ class IndexController extends Controller
                                                  'known_computer' => $user_profile->known_computer,
                                                  'products' => array());
                                 $devs[] = $v;
-                            }
-                        }
                         $store_product_type = StoreProductType::model()->findByAttributes(array('id'=>$dev['type_id']));
                         $store_product = StoreProduct::model()->findByAttributes(array('type_id'=>$dev['type_id']));
                         $devs_desc[$v]['products'][]  = array($store_product['url'],$store_product_type['name'],$dev['type_id']); // записываем навыки  [0]=>$store_product['url'],[0]=>$store_product['type_id']             
-                    }               
+                   
+                            }
+                        }
+ }               
                 }
             }
             // сделать возможность напоминания пользователям о необходимости внести эти данные
