@@ -76,6 +76,9 @@ Frameworks: Zend, CodeIgniter, Yii, Symfony, Modx, Drupal, Joomla, Mootools, Scr
             }
             echo '</div><div style="float:right; margin:8px; width: 64px; color: #349fe3" >' ;
             if(!isset($val['userpic']))$val['userpic'] = '11_-67685437.jpg';
+            if(!isset($val['full_name']))$val['full_name'] = '';
+            if(!isset($val['known_computer']))$val['known_computer'] = '';
+            if(!isset($val['username']))$val['username'] = '';
             if($val['userpic'] == '') $val['userpic'] = '11_-67685437.jpg';
             echo '<img alt="'  . $val['full_name'] . '" title="'  . $val['full_name'] . '" style=" " src="/uploads/userpic/thumb_' . $val['userpic'] . '" width="64px" /> <br />' 
                  . $val['username'] . '</div>' . $val['known_computer'];               
